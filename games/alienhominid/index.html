@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>alien hominid | 3kh0</title>
+    <link rel="icon" type="image/x-icon" href="bloonstd.jpg" />
+    <link rel="shortcut icon" type="image/x-icon" href="alienhominid.jpeg" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #000; /* Black bars color */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      #ruffle {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        aspect-ratio: 4 / 3; /* Enforce 4:3 aspect ratio */
+        background: #000; /* Black bars in case of gaps */
+      }
+
+      @media (min-aspect-ratio: 4 / 3) {
+        #ruffle {
+          height: 100%;
+        }
+      }
+
+      @media (max-aspect-ratio: 4 / 3) {
+        #ruffle {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script src="/js/main.js"></script>
+    <div id="ruffle"></div>
+    <script src="ruffle.js"></script>
+    <script>
+      window.RufflePlayer = window.RufflePlayer || {};
+      window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("ruffle");
+        player.id = "player";
+        player.style.width = "100%";
+        player.style.height = "100%";
+        container.appendChild(player);
+        player.load("alienhominid.swf");
+      });
+    </script>
+  </body>
+</html>
